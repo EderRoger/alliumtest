@@ -1,0 +1,25 @@
+<%- model_class = Onion -%>
+<div class="page-header">
+  <h1>Allium Cepa</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Nome:</strong></dt>
+  <dd><%= @onion.name %></dd>
+  <dt><strong>Descrição:</strong></dt>
+  <dd><%= @onion.description %></dd>
+  <dt><strong>Grupo:</strong></dt>
+  <dd><%= OnionGroup.find_by_id(@onion.onion_group_id).name %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              onions_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_onion_path(@onion), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              onion_path(@onion),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

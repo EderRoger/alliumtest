@@ -1,0 +1,9 @@
+<%= simple_form_for @root_register_execution, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :register_execution_id %>
+  <%= f.input :root_id %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_register_executions_path, :class => 'btn' %>
+  </div>
+<% end %>

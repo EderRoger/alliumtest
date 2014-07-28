@@ -1,0 +1,19 @@
+<fieldset>
+  <legend>Allium Cepa para gráfico</legend>
+<%= simple_form_for @register_execution, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <%= f.input :analysis_id, label: 'Análise', collection: Analysis.all,
+                prompt: "Selecione a Análise" %>
+    <%= f.input :onion_group_id, label: 'Grupo', collection: [],
+                prompt: "Selecione o Grupo" %>
+    <%= f.input :onion_id, label: 'Allium Cepa', collection: [],
+                prompt: "Selecione a Allium Cepa" %>
+    <%= f.input :day, label: 'Dia', collection: @days,
+                prompt: "Selecione um dia" %>
+
+    <a id='btn_graphic' href="#">Visualizar gráfico</a>
+      |
+    <a id='btn_graphic_group' href="#">Visualizar gráfico por grupo</a>
+
+<% end %>
+</fieldset>

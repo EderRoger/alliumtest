@@ -1,0 +1,19 @@
+<fieldset>
+  <legend>Cebolas</legend>
+  <table id="cebolas_table" class="table table-striped">
+    <thead>
+    <tr>
+      <th><%= Onion.human_attribute_name(:Nome) %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @onions.map do |onions| %>
+        <% onions.select do |onion| %>
+        <tr>
+          <td><%= "#{onion.onion_group.name} - #{onion.name}" %></td>
+        </tr>
+        <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</fieldset>

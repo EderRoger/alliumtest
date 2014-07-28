@@ -1,0 +1,17 @@
+<%= simple_form_for @onion, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <fieldset>
+
+      <legend>Dados</legend>
+      <%= f.input :name, label: 'Nome', as: :string %>
+      <%= f.input :description, label: 'Descrição', as: :text %>
+      <%= f.association :onion_group, label: 'Grupo', collection: OnionGroup.all(order: 'name'), prompt: "Selecione um grupo" %>
+
+      <div class="form-actions">
+        <%= f.submit 'Criar Allium Cepa', :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    onions_path, :class => 'btn' %>
+      </div>
+    </fieldset>
+
+<% end %>

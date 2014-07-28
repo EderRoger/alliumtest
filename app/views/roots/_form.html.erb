@@ -1,0 +1,16 @@
+<%= simple_form_for @root, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <fieldset>
+      <legend><%= controller.action_name.capitalize %>Raizes</legend>
+      <%= f.input :size, as: :string %>
+      <%= f.association :onion, collection: Onion.all(order: 'description'), prompt: "Selecione uma cebola" %>
+
+      <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    roots_path, :class => 'btn' %>
+      </div>
+    </fieldset>
+
+
+<% end %>

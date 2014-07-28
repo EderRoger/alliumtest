@@ -1,0 +1,19 @@
+<%= simple_form_for @register_execution, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <%= f.hidden_field :analysis_execution_id, value: @analysis_execution_id %>
+    <%= f.hidden_field :analysis_id, value: @analysis_id %>
+    <%= f.input :analysis_name, disabled: true, label: 'Execução da analise', :input_html => {:value => @analysis_name} %>
+    <%= f.input :day_number, label: 'Dia' %>
+    <%= f.input :onion_group_id, label: 'Grupo', collection: @groups,
+                prompt: "Selecione o Grupo" %>
+    <%= f.input :onion_id, label: 'Allium Cepa', collection: @onions,
+                prompt: "Selecione a Allium Cepa" %>
+    <%= f.input :root_size, as: :decimal ,  label: 'Tamanho da raiz' %>
+
+    <div class="form-actions">
+      <%= f.submit 'Registrar', :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  register_executions_path, :class => 'btn' %>
+    </div>
+<% end %>
+

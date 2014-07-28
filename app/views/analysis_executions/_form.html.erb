@@ -1,0 +1,13 @@
+<%= simple_form_for @analysis_execution, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.input :duration,label: 'Duração da análise', placeholder: 'em dias' %>
+    <%= f.association :analysis,label: 'Análise', collection: Analysis.all(order: 'description'), prompt: "Selecione a analise" %>
+
+    <div id='cebolas'></div>
+
+
+    <div class="form-actions">
+      <%= f.submit 'Criar Execução', :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  analysis_executions_path, :class => 'btn' %>
+    </div>
+<% end %>

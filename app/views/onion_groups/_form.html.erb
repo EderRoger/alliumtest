@@ -1,0 +1,10 @@
+<%= simple_form_for @onion_group, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.association :analysis, label: 'Análise', collection: Analysis.all(order: 'name'), prompt: "Selecione uma análise" %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                onion_groups_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<%- model_class = Analysis -%>
+<div class="page-header">
+  <h1>Análises</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Nome:</strong></dt>
+  <dd><%= @analysis.name %></dd>
+  <dt><strong>Descrição:</strong></dt>
+  <dd><%= @analysis.description %></dd>
+  <dt><strong>Início:</strong></dt>
+  <dd><%= @analysis.start_date %></dd>
+  <dt><strong>Fim:</strong></dt>
+  <dd><%= @analysis.end_date %></dd>
+
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              analyses_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_analysis_path(@analysis), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              analysis_path(@analysis),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

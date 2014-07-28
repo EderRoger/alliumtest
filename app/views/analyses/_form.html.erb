@@ -1,0 +1,17 @@
+<%= simple_form_for @analysis, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <fieldset>
+      <legend>Dados</legend>
+
+      <%= f.input :name, label: 'Nome' %>
+      <%= f.input :description, label: 'Descrição' %>
+      <%= f.input :start_date, label: 'Início', as: :string, input_html: { value: f.object.start_date } %>
+      <%= f.input :end_date, label: 'Fim', as: :string, input_html: { value: f.object.end_date } %>
+
+      <div class="form-actions">
+        <%= f.submit 'Criar Análise', :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => 'Cancelar'),
+                    analyses_path, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>
